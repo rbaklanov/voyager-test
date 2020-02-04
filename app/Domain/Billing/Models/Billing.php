@@ -29,9 +29,11 @@ class Billing extends Model
     {
         $this
             ->addState('state', BillingState::class)
+            ->default(Pending::class)
             ->allowTransition(Pending::class, Active::class)
             ->allowTransition(Pending::class, Failed::class)
             ->allowTransition(Pending::class, Declined::class)
-            ->allowTransition(Active::class, Cancelled::class);
+            ->allowTransition(Active::class, Cancelled::class)
+            ->allowTransition(Cancelled::class,Pending::class);
     }
 }

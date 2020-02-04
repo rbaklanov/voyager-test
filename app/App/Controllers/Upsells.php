@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Domain\Billing\Models\Billing;
+use App\Domain\Billing\States\Active;
+use App\Domain\Billing\States\Pending;
 use Illuminate\Http\Request;
 use Api;
 
