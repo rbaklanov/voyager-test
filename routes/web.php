@@ -29,6 +29,7 @@ class Platform
 }
 
 Route::get('/test', '\App\Controllers\Upsells@test');
+Route::get('/state', '\App\Controllers\Billings@state');
 
 Route::get('/', function () {
     return view('welcome');
