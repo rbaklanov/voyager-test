@@ -30,6 +30,7 @@ class Platform
 
 Route::get('/test', '\App\Controllers\Upsells@test');
 Route::get('/state', '\App\Controllers\Billings@state');
+Route::get('/action', '\App\Controllers\Billings@action');
 
 Route::get('/', function () {
     return view('welcome');

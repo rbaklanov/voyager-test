@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Domain\Billing\Actions\CreateBillingAction;
 use App\Domain\Billing\States\Cancelled;
 use Illuminate\Http\Request;
 use App\Domain\Billing\States\Active;
@@ -25,5 +26,12 @@ class Billings
         echo "{$billing->state->state()}\n";
 
         $billing->state->transitionTo(Pending::class);
+    }
+
+    public function action(Request $request, CreateBillingAction $createBilling)
+    {
+        $billing = Billing::findOrFail(1);
+
+        $createBilling->execute($billing);
     }
 }
