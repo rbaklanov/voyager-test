@@ -2,7 +2,7 @@
 
 namespace Api\Shopify;
 
-use Api\VoyagerAPI;
+use Api\VoyagerApi;
 use OhMyBrew\BasicShopifyAPI;
 use Api\Interfaces\ApiConnector;
 

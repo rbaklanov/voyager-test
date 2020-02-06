@@ -2,11 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Domain\Billing\Models\Billing;
-use App\Domain\Billing\States\Active;
-use App\Domain\Billing\States\Pending;
-use Illuminate\Http\Request;
 use Api;
+use Illuminate\Http\Request;
 
 class Upsells extends Controller
 {
@@ -15,14 +12,8 @@ class Upsells extends Controller
         $platform = app('platform')->platform();
 
         $api = ($platform === Api\VoyagerAPI::SHOPIFY_PLATFORM) ?
-            new Api\Shopify\ShopifyApi(
-                config('api.shopify.store'),
-                config('api.shopify.token'),
-                config('api.shopify.version')) :
-            new Api\Bigcommerce\BigcommerceApi(
-                config('api.bigcommerce.user'),
-                config('api.bigcommerce.api_key')
-            );
+            app('ShopifyApi') :
+            app('BigcommerceApi');
         $api->post([]);
         $api->get();
     }
