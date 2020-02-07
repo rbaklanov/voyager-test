@@ -126,7 +126,7 @@ They are very useful for reducing the number of parameters in functions, which p
 
 
 
-#### Request Life Cycle
+## Request Life Cycle
 
 *A typical very basic API call scenario:*
 
